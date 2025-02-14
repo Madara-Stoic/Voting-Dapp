@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="C.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+    padding: 0;
+    margin: 0;
+    font-family: 'Agbalumo', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    background-color: rgb(2, 9, 48);
+    background-image: url('phoneimg.jpg');
+    background-size: cover;
+    color: white;
+}
+
+h1 {
+    color: #f9004d;
+}
+
+.head2 {
+    margin: 10vh auto;
+    width: 80%;
+    height: 10vh;
+    background-color: #021930;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.info {
+    margin: 20px auto;
+    width: 70%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(2, 9, 72, 0.8);
+    overflow: hidden;
+}
+
+.info form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 20px;
+}
+
+.info form input {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 2px solid #f9004d;
+    margin: 15px 0;
+    outline: none;
+}
+
+.label-feed {
+    margin-top: 15px;
+}
+
+#feedback {
+    border: 2px solid #f9004d;
+    border-radius: 15px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.info form .submit-button {
+    background-color: #f9004d;
+    color: white;
+    padding: 10px 30px;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.5s ease;
+}
+
+.info form .submit-button:hover {
+    background-color: transparent;
+    color: #f9004d;
+    border: 2px solid #f9004d;
+}
+
+.icons-div {
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons-div a {
+    color: #f9004d;
+    font-size: 2.3rem;
+    transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.icons-div a:hover {
+    color: #ffffff;
+    transform: translateY(-7px);
+}
+</style>
+<body>
+    <header>
+        <div class="head1">
+        <div class="head2">
+        <h1 class="heading">Contact Us</h2>
+        </div>
+        </div>
+    </header>
+    <main>
+    <div class="user-info">
+            <div class="info">
+            <form >
+                <input type="text" name="username" id="name" placeholder="Name">
+                <input type="email" name="email2" id="mail2" placeholder="Email">
+                 <p class="label-feed"><label for="feedback"></label></p>
+                 <textarea name="feed" id="feedback" cols="30" rows="10" placeholder="  Provide your feedback..."></textarea>
+                  <div class="button"><a href="#" class="submit-button">Submit</a></div>
+            </form>
+        </div>
+    </div>
+            <div class="icons-div">
+                <a href="https://www.linkedin.com/in/vishnu-vardhan-41377524b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+                <a href="https://www.instagram.com/vishnu_vardhan_gurujala/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="https://discord.com/invite/HKeAtNDU" target="_blank"><ion-icon name="logo-discord"></ion-icon></a>
+                <a href="https://twitter.com/gurujalavishnu" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="https://github.com/Madara-Stoic" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+            </div>
+    
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime</title>
+    <link rel="stylesheet" href="a.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.5/dist/web3.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Agbalumo', Arial, sans-serif;
+            background-color: rgb(2, 9, 48);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: rgb(2, 9, 48);
+            padding: 20px;
+        }
+
+        .con {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #f9004d;
+            font-size: 5vw;
+            font-family: 'Agbalumo', Arial, sans-serif;
+            padding-bottom: 2vh;
+            padding-top: 2vh;
+            text-shadow: 0.5vw 0.5vw 0.5vw #f0f8ff;
+        }
+
+        .parties {
+            width: 48%;
+            margin: 1%;
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: rgb(2, 9, 48);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        img {
+            width: 60%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        h2 {
+            color: skyblue;
+            padding-left: 1vw;
+            padding-bottom: 3vh;
+            font-weight: bold;
+            font-family: 'Agbalumo', Arial, sans-serif;
+        }
+
+        #byn {
+            color: white;
+            background-color: #f9004d;
+            width: 40%;
+            font-weight: bold;
+            font-size: 2vw;
+            font-family: 'Agbalumo', Arial, sans-serif;
+            padding: 2vh;
+            margin-top: 2vh;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+        #byn:hover {
+            transform: scale(1.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            img{
+                width: 90%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            }
+
+            .parties {
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        const web3 = new Web3(Web3.givenProvider || 'http://localhost:8545'); // Use the appropriate provider
+
+// Replace 'contractAddress' with the deployed contract address
+const contractAddress = '0x99CF4c4CAE3bA61754Abd22A8de7e8c7ba3C196d';
+
+// Replace 'abi' with the actual ABI of your smart contract
+const abi = [
+
+{
+"anonymous": false,
+"inputs": [
+    {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+    },
+    {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "votes",
+        "type": "uint256"
+    }
+],
+"name": "VoteCasted",
+"type": "event"
+},
+{
+"inputs": [
+    {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+    }
+],
+"name": "voteForAnimeCharacter",
+"outputs": [],
+"stateMutability": "payable",
+"type": "function"
+},
+{
+"inputs": [
+    {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+    }
+],
+"name": "voteForAPParty",
+"outputs": [],
+"stateMutability": "payable",
+"type": "function"
+},
+{
+"inputs": [
+    {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+    }
+],
+"name": "voteForCricketTeam",
+"outputs": [],
+"stateMutability": "payable",
+"type": "function"
+},
+{
+"inputs": [
+    {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+    }
+],
+"name": "voteForFootballClub",
+"outputs": [],
+"stateMutability": "payable",
+"type": "function"
+},
+{
+"inputs": [
+    {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+    }
+],
+"name": "voteForTSParty",
+"outputs": [],
+"stateMutability": "payable",
+"type": "function"
+},
+{
+"inputs": [
+    {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+    }
+],
+"name": "voteForUFCFighter",
+"outputs": [],
+"stateMutability": "payable",
+"type": "function"
+},
+{
+"inputs": [
+    {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+    }
+],
+"name": "getVoteCount",
+"outputs": [
+    {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }
+],
+"stateMutability": "view",
+"type": "function"
+}
+]
+;
+
+// Create a contract instance
+const contract = new web3.eth.Contract(abi, contractAddress);
+
+// Function to check if Metamask is connected
+async function checkMetamask() {
+if (window.ethereum && window.ethereum.isMetaMask) {
+    try {
+        // Request Metamask to connect
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        console.log('Metamask connected!');
+    } catch (error) {
+        console.error('Metamask connection error:', error.message);
+    }
+} else {
+    console.error('Metamask not detected');
+}
+}
+
+// Function to vote for a football club
+async function voteForUFCFighter() {
+try {
+    // Check if Metamask is connected
+    await checkMetamask();
+
+    // Replace 'tokenId' with the actual token ID you want to vote for
+    const tokenId = 111110;
+
+    // Send the transaction
+    const result = await contract.methods.voteForUFCFighter(tokenId).send({
+        from: (await web3.eth.getAccounts())[0],
+        value: '1000000000000000',
+    });
+
+    console.log('Transaction hash:', result.transactionHash);
+} catch (error) {
+    console.error('Error:', error.message);
+}
+}
+async function voteForUFCFighter1() {
+try {
+    // Check if Metamask is connected
+    await checkMetamask();
+
+    // Replace 'tokenId' with the actual token ID you want to vote for
+    const tokenId = 111111;
+
+    // Send the transaction
+    const result = await contract.methods.voteForUFCFighter(tokenId).send({
+        from: (await web3.eth.getAccounts())[0],
+        value: '1000000000000000',
+    });
+
+    console.log('Transaction hash:', result.transactionHash);
+} catch (error) {
+    console.error('Error:', error.message);
+}
+}
+async function voteForUFCFighter2() {
+try {
+    // Check if Metamask is connected
+    await checkMetamask();
+
+    // Replace 'tokenId' with the actual token ID you want to vote for
+    const tokenId = 111112;
+
+    // Send the transaction
+    const result = await contract.methods.voteForUFCFighter(tokenId).send({
+        from: (await web3.eth.getAccounts())[0],
+        value: '1000000000000000',
+    });
+
+    console.log('Transaction hash:', result.transactionHash);
+} catch (error) {
+    console.error('Error:', error.message);
+}
+}
+async function voteForUFCFighter3() {
+try {
+    // Check if Metamask is connected
+    await checkMetamask();
+
+    // Replace 'tokenId' with the actual token ID you want to vote for
+    const tokenId = 111113;
+
+    // Send the transaction
+    const result = await contract.methods.voteForUFCFighter(tokenId).send({
+        from: (await web3.eth.getAccounts())[0],
+        value: '1000000000000000',
+    });
+
+    console.log('Transaction hash:', result.transactionHash);
+} catch (error) {
+    console.error('Error:', error.message);
+}
+}
+async function voteForUFCFighter4() {
+try {
+    // Check if Metamask is connected
+    await checkMetamask();
+
+    // Replace 'tokenId' with the actual token ID you want to vote for
+    const tokenId = 111114;
+
+    // Send the transaction
+    const result = await contract.methods.voteForUFCFighter(tokenId).send({
+        from: (await web3.eth.getAccounts())[0],
+        value: '1000000000000000',
+    });
+
+    console.log('Transaction hash:', result.transactionHash);
+} catch (error) {
+    console.error('Error:', error.message);
+}
+}
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Faviorate UFC Fighter</h1>
+        <div class="con">
+            <div class="parties">
+                <h2>Khabib Nurmagomedov</h2>
+                <img src="khabib.jpg" alt="Khabib">
+                <button id="byn" onclick="voteForUFCFighter()">Vote</button>
+            </div>
+            <div class="parties">
+                <h2>Conor McGregor</h2>
+                <img src="conor.jpg" alt="Conor">
+                <button id="byn" onclick="voteForUFCFighter1()">Vote</button>
+            </div>
+            <div class="parties">
+                <h2>Jon Jones</h2>
+                <img src="jones.jpg" alt="Jon Jones">
+                <button id="byn" onclick="voteForUFCFighter2()">Vote</button>
+            </div>
+            <div class="parties">
+                <h2>Brock Lesnar</h2>
+                <img src="brock lesner.jpg" alt="Brock Lesnar">
+                <button id="byn" onclick="voteForUFCFighter3()">Vote</button>
+            </div>
+            <div class="parties">
+                <h2>Georges St-Pierre</h2>
+                <img src="gsp.jpg" alt="GSP">
+                <button id="byn" onclick="voteForUFCFighter4()">Vote</button>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>

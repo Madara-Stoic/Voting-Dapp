@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Blockchain Voting</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap">
+    <style>
+        body {
+            font-family: 'Agbalumo', Arial, sans-serif;
+            background-color: rgb(2, 9, 48);
+            margin: 0;
+            padding: 0;
+            color: #fff; /* Changed text color to white */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgb(34, 41, 90); /* Updated background color with some opacity */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #f9004d;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        strong{
+            color: rgb(169, 166, 166);
+        }
+
+        .faq-question {
+            font-weight: 200;
+            cursor: pointer;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            transition: color 0.3s;
+        }
+
+        .faq-answer {
+            display: none;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            font-weight: 100;
+        }
+
+        .faq-answer p {
+            line-height: 1.6;
+        }
+
+        .faq-question:hover {
+            color: #f9004d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Frequently Asked Questions(FAQ's)</h1>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('faq1')">What is a Metamask wallet?</div>
+            <div class="faq-answer" id="faq1">
+                <p><strong>Brief:</strong> Metamask is your digital key to the blockchain world.</p>
+                <p><strong>Function:</strong> Manages cryptocurrency and interacts with Ethereum DApps.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('faq2')">How do I create a Metamask wallet?</div>
+            <div class="faq-answer" id="faq2">
+                <p><strong>Process:</strong> Visit metamask.io, install the extension, and set up with a secure password.</p>
+                <p><strong>Essential:</strong> Save the secret backup phrase for wallet access.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('faq3')">Where can I get testnet tokens?</div>
+            <div class="faq-answer" id="faq3">
+                <p><strong>Source:</strong> Use faucets like faucets.chain.link or faucet.ropsten.be.</p>
+                <p><strong>Free:</strong> Obtain testnet tokens by entering your wallet address.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('faq4')">What's the purpose of testnet tokens?</div>
+            <div class="faq-answer" id="faq4">
+                <p><strong>Developer Playground:</strong> Test and experiment with your DApp risk-free.</p>
+                <p><strong>Safe Testing:</strong> Create a secure environment for DApp trial and error.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('faq5')">Can I vote for multiple leaders?</div>
+            <div class="faq-answer" id="faq5">
+                <p>Voters are allowed to cast votes for multiple leaders in each election, promoting a fair, transparent, and individualized voting process while preventing manipulation.</p>
+                
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('faq6')">Can I customize moderation settings?</div>
+            <div class="faq-answer" id="faq6">
+                <p><strong>Moderation Control:</strong>Utilize a dedicated dashboard for monitoring.</p>
+                <p><strong>Adaptability:</strong> Implement customizable moderation rules for different scenarios.</p>
+                <p><strong>Prompt Action:</strong>Enable real-time notifications for quick issue resolution.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('faq7')">How do I handle disputes in voting results?</div>
+            <div class="faq-answer" id="faq7">
+                <p><strong>Transparent Process:</strong>Establish a clear and transparent dispute resolution process.</p>
+                <p><strong>Community Involvement:</strong>Involve the community in dispute resolution for fairness.</p>
+                <p><strong>Smart Contract Support:</strong>Leverage smart contracts for automated dispute resolution.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('faq8')">How can I confirm that my vote has been successfully recorded?</div>
+            <div class="faq-answer" id="faq8">
+                <p><strong>Confirmation Receipt:</strong>Upon submitting a vote, users receive a confirmation receipt with a unique transaction ID.</p>
+                <p><strong>Blockchain Transparency:</strong>Users can verify their vote on the blockchain, leveraging the transparency of the technology.</p>
+                <p><strong>Accessible Records:</strong>Accessible records provide assurance that each vote is accurately recorded and counted.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer('faq9')">Can I transfer testnet tokens to someone else?</div>
+            <div class="faq-answer" id="faq9">
+                <p>UTestnet tokens are generally meant for individual testing.</p>
+                <p>If you want to simulate transactions between users, create multiple Metamask accounts to interact within your DApp.</p>
+            </div>
+        </div>
+
+        <!-- Add more FAQ items as needed -->
+
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            var answer = document.getElementById(id);
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>

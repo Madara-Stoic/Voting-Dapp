@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Dapp</title>
+    <link rel="stylesheet" href="a.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+    <style>
+         * {
+            margin: 0;
+            padding: 3px;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Agbalumo', sans-serif;
+            background-color: rgb(2, 9, 48);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding-top: 80px; /* Adjust this value based on your header height */
+        }
+
+        h1 {
+            width: 90%;
+            z-index: 2; /* Set a higher z-index than container */
+            color: #f9004d;
+            font-size: 4vw;
+            font-family: 'Agbalumo', Arial, sans-serif;
+            padding-bottom: 2vh;
+            padding-top: 0vh;
+            text-shadow: 0.5vw 0.5vw 0.5vw #f0f8ff;
+            text-align: center;
+            background-color: rgb(2, 9, 48);
+            transition: top 0.3s ease; /* Add smooth transition effect */
+        }
+
+        .con {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto; /* Center the content horizontally */
+        }
+
+        .parties {
+            width: 48%;
+            margin: 1%;
+        }
+
+        img {
+            width: 80%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        img:hover {
+            cursor: pointer;
+            width: 85%;
+            max-height: 310px;
+        }
+
+        #byn {
+            color: orangered;
+            background-color: rgb(84, 243, 40);
+            width: 100%;
+            font-weight: bold;
+            font-size: 3vw;
+            font-family: 'Agbalumo', sans-serif;
+            padding: 2vh;
+            margin-bottom: 2vh;
+            border-radius: 20px;
+        }
+
+        #byn:hover {
+            cursor: pointer;
+        }
+
+        h2 {
+            color: white;
+            padding-left: 5vw;
+            padding-bottom: 3vh;
+            font-weight: bold;
+            font-family: 'Agbalumo', sans-serif;
+        }
+
+        #p {
+            color: #f9004d;
+            font-size: 1.5vw;
+            font-family: 'Agbalumo', sans-serif;
+            padding-bottom: 2vh;
+            padding-top: 2vh;
+            text-shadow: 0.5vw 0.5vw 0.5vw #f9004d;
+        }
+
+        @media screen and (max-width: 768px) {
+            .parties {
+                width: 100%;
+            }
+            img{
+                align-items: center;
+            }
+            h1 {
+                font-size: 8vw;
+            }
+        }
+    </style>
+    <script>
+        function redirectToAnotherPage1() {
+            window.location.href = 'apelection.html';
+        }
+
+        function redirectToAnotherPage2() {
+            window.location.href = 'tselection.html';
+        }
+
+        function redirectToAnotherPage3() {
+            window.location.href = 'cricket.html';
+        }
+
+        function redirectToAnotherPage4() {
+            window.location.href = 'football.html';
+        }
+        function redirectToAnotherPage5() {
+            window.location.href = 'anime.html';
+        }
+        function redirectToAnotherPage6() {
+            window.location.href = 'ufc.html';
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Cast your vote and let your voice be heard!</h1>
+        <div class="con">
+            <div class="parties">
+                <h2>Andhra Pradesh Election</h2>
+                <img src="apelection.jpeg" alt="Clickable Image" id="clickableImage" onclick="redirectToAnotherPage1()">
+            </div>
+            <div class="parties">
+                <h2>Telangana Election</h2>
+                <img src="tselection.jpeg" alt="Clickable Image" id="clickableImage" onclick="redirectToAnotherPage2()">
+            </div>
+            <div class="parties">
+                <h2>Favoriate Cricket Team</h2>
+                <img src="cricketimage (1).jpg" alt="Clickable Image" id="clickableImage" onclick="redirectToAnotherPage3()">
+            </div>
+            <div class="parties">
+                <h2>Favoriate Football Team</h2>
+                <img src="football-logo-design_680400-15 (1).png" alt="Clickable Image" id="clickableImage" onclick="redirectToAnotherPage4()">
+            </div>
+            <div class="parties">
+                <h2>Favoriate Anime</h2>
+                <img src="Naruto-Shippuden-Logo-Transparent-Image (1).png" alt="Clickable Image" id="clickableImage" onclick="redirectToAnotherPage5()">
+            </div>
+            <div class="parties">
+                <h2>Faviorate UFC Fighter</h2>
+                <img src="ufc.jpg" alt="Clickable Image" id="clickableImage" onclick="redirectToAnotherPage6()">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
